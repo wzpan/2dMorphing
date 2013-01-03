@@ -123,11 +123,11 @@ imageP allocImage(int w, int h, int type)
   /* init channel pointers */ 
   switch(type) { 
   case BW: 
-    I->ch[0] = (uchar *) malloc(w*h);	// 如果为BW，图像将有1个通道，内容为unsigned char
+    I->ch[0] = (uchar *) malloc(w*h);	
     break; 
   case MESH: 
-    I->ch[0] = (float *) malloc(2*w*h*sizeof(float)); // 如果为MESH，图像有2个通道，内容为float
-    I->ch[1] = (float *) I->ch[0] + w*h;			  // 通道1放置所有的网格，通道2放置一些特征点
+    I->ch[0] = (float *) malloc(2*w*h*sizeof(float)); 
+    I->ch[1] = (float *) I->ch[0] + w*h;			  
     break; 
   default:
     cerr << "allocImage: Bad type" << type << endl;
